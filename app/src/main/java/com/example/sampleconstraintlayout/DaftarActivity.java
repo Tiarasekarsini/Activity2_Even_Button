@@ -58,6 +58,12 @@ public class DaftarActivity extends AppCompatActivity {
                 }
                 else
                 {
+                    //Membuat kondisi untuk mengecek apakah isi dari EditText password dan EditText repassword sama atau tidak
+                    if (edtPassword.getText().toString().equals(edtrepass.getText().toString()))
+                    {
+                        //Menampilkan pesan notifikasi jika pendaftaran berhasil
+                        Toast.makeText(DaftarActivity.this, "Pendaftaran berhasil", Toast.LENGTH_SHORT).show();
+                    }
                     //menampilkan pesan bahwa isi dari EditText password dan EditText repassword
                     //tidak sama
                     Snackbar.make(view, "Password dan Repassword harus sama!!!!", Snackbar.LENGTH_LONG).show();
