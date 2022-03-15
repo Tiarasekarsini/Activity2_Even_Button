@@ -1,9 +1,12 @@
 package com.example.sampleconstraintlayout;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +22,24 @@ public class MainActivity extends AppCompatActivity {
 
     //Deklarasi variabel untuk menyimpan email dan password
     String nama, password;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //method untuk menampilkan menu.
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.mnDaftar)
+        {
+            //method untuk memanggil activity "DaftarActivity"
+            Intent i = new Intent(getApplicationContext(), DaftarActivity.class);
+            startActivity(i);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 //memasukkan value dari variabel password dengan kunci "b" dan dimasukkan kedalam bundle
                 bn.putString("b", password.trim());
 
-                //membuat objek intent berpindah activity dari mainactivity ke ActivityKedua
+                //membuat objek intent berpindah activity dari mainactivity ke ActivityKedua (memanggil dan yang dipanggil)
                 Intent i = new Intent(MainActivity.this,ActivityKedua.class);
 
                 //memasukkan bundle kedalam intent untuk dikirimkan ke ActivityKedua
@@ -77,4 +98,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     });
+
 }}
