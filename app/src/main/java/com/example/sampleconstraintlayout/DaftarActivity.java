@@ -63,10 +63,17 @@ public class DaftarActivity extends AppCompatActivity {
                     {
                         //Menampilkan pesan notifikasi jika pendaftaran berhasil
                         Toast.makeText(DaftarActivity.this, "Pendaftaran berhasil", Toast.LENGTH_SHORT).show();
+
+                        //method untuk kembali ke activity Main
+                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(i);
                     }
-                    //menampilkan pesan bahwa isi dari EditText password dan EditText repassword
-                    //tidak sama
-                    Snackbar.make(view, "Password dan Repassword harus sama!!!!", Snackbar.LENGTH_LONG).show();
+                    else
+                    {
+                        //menampilkan pesan bahwa isi dari EditText password dan EditText repassword
+                        //tidak sama
+                        Snackbar.make(view, "Password dan Repassword harus sama!!!!", Snackbar.LENGTH_LONG).show();
+                    }
                 }
             }
         });
